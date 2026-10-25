@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K-BeautyRanked — Korean Skincare & Makeup, Tested and Ranked</title>
+<meta name="description" content="Editor-tested rankings of Korean skincare and makeup, with live YesStyle prices. Find the best pimple patches, sunscreens, sheet masks and more.">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="index.html">K-Beauty<span>Ranked</span></a>
+    <nav class="topnav" id="topnav"></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>We test Korean beauty products.<br>Then we rank them.</h1>
+  <p class="updated" style="font-size:14.5px;max-width:620px;margin-top:8px">
+    Every product is bought retail and scored on the same protocol. Rankings update monthly with
+    YesStyle pricing. No sponsored placements.
+  </p>
+
+  <div class="hero-tool">
+    <div>
+      <h2>Not sure where to start?</h2>
+      <p>Answer 4 questions — get matched to the right products for your skin, concern and budget.</p>
+    </div>
+    <a class="btn" href="quiz.html"><i data-lucide="wand-2" style="width:15px;height:15px"></i> Find my match</a>
+  </div>
+
+  <h2>All rankings</h2>
+  <div class="cat-grid" id="cat-grid"></div>
+
+  <div class="answer-block" style="margin-top:34px">
+    <span class="label">What is the best Korean skincare brand for beginners?</span>
+    For a first routine, COSRX and Beauty of Joseon are the two safest starting points: both keep
+    formulas short, fragrance low and prices under $20. Start with a COSRX cleanser, a Beauty of
+    Joseon sunscreen, and add a snail mucin essence only after two weeks of consistency.
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Affiliate disclosure:</b> K-BeautyRanked participates in the YesStyle affiliate program and earns commissions from qualifying purchases, at no additional cost to you. Rankings are never influenced by commission rates.</p>
+  </div>
+</footer>
+
+<script src="affiliate.js"></script>
+<script src="data.js"></script>
+<script>
+document.getElementById("topnav").innerHTML = Object.entries(CATEGORIES).map(([k, c]) =>
+  `<a href="category.html?cat=${k}">${c.name}</a>`).join("");
+
+const CAT_ICONS = {
+  "pimple-patches": "shield", "korean-sunscreen": "sun", "sheet-masks": "layers",
+  "snail-serum": "droplets", "lip-tint": "smile", "cushion-foundation": "circle-dot",
+};
+document.getElementById("cat-grid").innerHTML = Object.entries(CATEGORIES).map(([k, c]) => {
+  const top = PRODUCTS.find(p => p.cat === k && p.rankNote === "Best overall");
+  return `<a class="cat-card" href="category.html?cat=${k}">
+    <div class="ic"><i data-lucide="${CAT_ICONS[k] || "sparkles"}" style="width:18px;height:18px"></i></div>
+    <h3>${c.h1.replace(" in 2026", "")}</h3>
+    <p>#1: ${top ? top.brand + " " + top.name : ""}</p>
+  </a>`;
+}).join("");
+lucide.createIcons();
+</script>
+</body>
+</html>

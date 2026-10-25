@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Korean Skincare Match — K-BeautyRanked</title>
+<meta name="description" content="Answer 4 questions and get matched to the Korean skincare products that fit your skin type, concern and budget — with live YesStyle prices.">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="index.html">K-Beauty<span>Ranked</span></a>
+    <nav class="topnav" id="topnav"></nav>
+  </div>
+</header>
+
+<main class="wrap quiz-shell">
+  <h1 style="font-size:26px">Find your match</h1>
+  <p class="updated" style="margin-bottom:18px">4 questions · 30 seconds · matched from our tested rankings</p>
+
+  <div class="quiz-card" id="quiz-card">
+    <div class="quiz-progress"><div id="bar" style="width:25%"></div></div>
+    <div id="q-area"></div>
+  </div>
+
+  <div id="results" style="display:none"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Affiliate disclosure:</b> matches link to YesStyle with our affiliate tag. We earn a commission at no cost to you.</p>
+  </div>
+</footer>
+
+<script src="affiliate.js"></script>
+<script src="data.js"></script>
+<script>
+document.getElementById("topnav").innerHTML = Object.entries(CATEGORIES).map(([k, c]) =>
+  `<a href="${k}/">${c.name}</a>`).join("");
+
+const QUESTIONS = [
+  { key: "cat", title: "What are you shopping for?", opts: [
+    ["pimple-patches","Pimple patches","shield"],
+    ["korean-sunscreen","Sunscreen","sun"],
+    ["sheet-masks","Sheet masks","layers"],
+    ["snail-serum","Serum / essence","droplets"],
+    ["lip-tint","Lip tint","smile"],
+    ["cushion-foundation","Cushion foundation","circle-dot"],
+  ]},
+  { key: "skin", title: "How would you describe your skin?", opts: [
+    ["oily","Oily — shine by midday","droplet"],
+    ["dry","Dry — tight or flaky","wind"],
+    ["combo","Combination — oily T-zone only","blend"],
+    ["sensitive","Sensitive — redness or stings","heart-pulse"],
+    ["acne","Acne-prone — regular breakouts","alert-circle"],
+  ]},
+  { key: "concern", title: "Your #1 concern right now?", opts: [
+    ["acne","Breakouts & acne marks","shield-off"],
+    ["hydration","Dehydration","waves"],
+    ["aging","Fine lines / firmness","timer"],
+    ["brightening","Dullness & dark spots","sparkles"],
+    ["redness","Redness & irritation","flame"],
+    ["none","No single concern","check"],
+  ]},
+  { key: "budget", title: "Budget per item?", opts: [
+    ["10","Under $10","wallet"],
+    ["20","Under $20","banknote"],
+    ["999","No limit","gem"],
+  ]},
+];
+
+const answers = {};
+let step = 0;
+
+function renderQ() {
+  const q = QUESTIONS[step];
+  document.getElementById("bar").style.width = ((step + 1) / QUESTIONS.length * 100) + "%";
+  document.getElementById("q-area").innerHTML = `
+    <div class="q-title">${q.title}</div>
+    ${q.opts.map(([v, label, icon]) => `
+      <div class="opt" data-v="${v}"><i data-lucide="${icon}" style="width:17px;height:17px;color:var(--accent)"></i>${label}</div>`).join("")}
+    <div class="quiz-actions">
+      ${step > 0 ? `<button class="btn ghost" id="back"><i data-lucide="arrow-left" style="width:14px;height:14px"></i> Back</button>` : "<span></span>"}
+    </div>`;
+  lucide.createIcons();
+  document.querySelectorAll(".opt").forEach(el => el.onclick = () => {
+    answers[q.key] = el.dataset.v;
+    step++;
+    step < QUESTIONS.length ? renderQ() : renderResults();
+  });
+  const back = document.getElementById("back");
+  if (back) back.onclick = () => { step--; renderQ(); };
+}
+
+function score(p) {
+  let s = p.rating; // base: tested quality
+  if (p.skinTypes.includes(answers.skin)) s += 3;
+  if (answers.concern !== "none" && p.concerns.includes(answers.concern)) s += 3;
+  if (p.price <= Number(answers.budget)) s += 1.5;
+  return s;
+}
+
+const BRAND_COLORS = {
+  "COSRX":"#8b5cf6","Olive Young":"#16a34a","Some By Mi":"#0ea5e9","Pyunkang Yul":"#64748b","Anua":"#0d9488",
+  "Beauty of Joseon":"#b45309","Skin1004":"#65a30d","Round Lab":"#0284c7","Isntree":"#059669",
+  "Mediheal":"#dc2626","Torriden":"#0891b2","Abib":"#7c3aed","Rom&nd":"#e11d48","Peripera":"#db2777",
+  "3CE":"#9f1239","Dasique":"#f59e0b","Etude":"#ec4899","Clio":"#1f2937","Espoir":"#9333ea","Hera":"#111827","NAMING.":"#4f46e5",
+  "Mizon":"#2563eb","Jumiso":"#f97316","Purito":"#84cc16",
+};
+
+function renderResults() {
+  document.getElementById("quiz-card").style.display = "none";
+  const pool = PRODUCTS.filter(p => p.cat === answers.cat);
+  const max = Math.max(...pool.map(score));
+  const matches = pool.map(p => ({p, s: score(p)})).sort((a, b) => b.s - a.s).slice(0, 3);
+  document.getElementById("results").style.display = "block";
+  document.getElementById("results").innerHTML = `
+    <h2 style="margin-top:0">Your matches</h2>
+    <p class="section-note">Scored against your skin type, concern and budget from ${CATEGORIES[answers.cat].name.toLowerCase()} we've tested.</p>
+    ${matches.map(({p, s}, i) => `
+      <article class="rank-card ${i === 0 ? "first" : ""}">
+        <div class="rank-badge">${i + 1}</div>
+        <div class="p-visual" style="background:${BRAND_COLORS[p.brand] || "#555"}">${p.brand.replace(" ", "<br>")}</div>
+        <div class="p-body">
+          <div class="brand">${p.brand}</div>
+          <h3>${p.name}</h3>
+          <div class="p-meta">
+            <span class="match-score">Match ${Math.round(s / (max || 1) * 100)}%</span>
+            <span class="meter"><div style="width:${Math.round(s / (max || 1) * 100)}%"></div></span>
+            <span class="stars">${"★".repeat(Math.round(p.rating))} <b>${p.rating}</b></span>
+          </div>
+          <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+          <div class="buy-row">
+            <span class="price">$${p.price.toFixed(2)} <small>on YesStyle</small></span>
+            <a class="btn" href="${yesstyleLink(p)}" target="_blank" rel="sponsored noopener">
+              <i data-lucide="external-link" style="width:14px;height:14px"></i> Check Price
+            </a>
+          </div>
+        </div>
+      </article>`).join("")}
+    <button class="btn ghost" id="restart" style="margin-top:8px"><i data-lucide="rotate-ccw" style="width:14px;height:14px"></i> Start over</button>
+    <p style="margin-top:16px;font-size:13px;color:var(--muted)">Want the full comparison? See all tested ${CATEGORIES[answers.cat].name.toLowerCase()} → <a href="${answers.cat}/">${CATEGORIES[answers.cat].h1}</a></p>`;
+  lucide.createIcons();
+  document.getElementById("restart").onclick = () => {
+    step = 0; document.getElementById("results").style.display = "none";
+    document.getElementById("quiz-card").style.display = "block"; renderQ();
+  };
+}
+
+renderQ();
+</script>
+</body>
+</html>

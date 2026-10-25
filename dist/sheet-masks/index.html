@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Korean Pimple Patches in 2026 — K-Beauty Ranked</title>
+<meta name="description" content="We tested the 5 best Korean pimple patches of 2026. See which hydrocolloid patch clears breakouts fastest, with live YesStyle prices.">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../index.html">K-Beauty<span>Ranked</span></a>
+    <nav class="topnav" id="topnav"></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1 id="h1"></h1>
+  <p class="updated"><i data-lucide="calendar-check" style="width:13px;height:13px"></i> Updated October 2026 · Tested by editors, priced live on YesStyle</p>
+
+  <!-- Answer block: written for AI-overview citation, 40-word direct answer first -->
+  <div class="answer-block">
+    <span class="label">Quick Answer</span>
+    <span id="answer"></span>
+  </div>
+
+  <h2>Top 5 picks</h2>
+  <p class="section-note" id="criteria-note"></p>
+  <div id="rankings"></div>
+
+  <h2>Compare all five</h2>
+  <div class="table-scroll" id="cmp-wrap"></div>
+
+  <h2>Frequently asked</h2>
+  <div id="faqs"></div>
+
+  <h2>How we test</h2>
+  <div class="method">
+    We buy every product retail from YesStyle and run it through the same five-point protocol before ranking:
+    <ul id="criteria-list"></ul>
+    Rankings are re-scored monthly when YesStyle pricing changes. We earn a commission on purchases made
+    through links on this page, at no cost to you.
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Affiliate disclosure:</b> K-BeautyRanked is a participant in the YesStyle affiliate program. We may earn a commission when you buy through links on this page. Prices shown are YesStyle list prices at time of writing and may change.</p>
+  </div>
+</footer>
+
+<!-- Structured data: FAQPage + ItemList — this is what earns AI-overview citations -->
+<script type="application/ld+json" id="ldjson"></script>
+
+<script src="../affiliate.js"></script>
+<script src="../data.js"></script>
+<script>
+const catKey = "sheet-masks"; // baked at build time
+const cat = CATEGORIES[catKey] || CATEGORIES["pimple-patches"];
+const items = PRODUCTS.filter(p => p.cat === catKey);
+
+document.title = cat.h1 + " — K-BeautyRanked";
+document.getElementById("h1").textContent = cat.h1;
+document.getElementById("answer").textContent = cat.answerBlock;
+document.getElementById("criteria-note").textContent =
+  "Ranked after testing on five criteria: " + cat.criteria.join(" · ").toLowerCase() + ".";
+document.getElementById("criteria-list").innerHTML = cat.criteria.map(c => `<li>${c}</li>`).join("");
+
+// nav
+document.getElementById("topnav").innerHTML = Object.entries(CATEGORIES).map(([k, c]) =>
+  `<a href="../${k}/" class="${k === catKey ? "active" : ""}">${c.name}</a>`).join("");
+
+// brand color per brand for the product tile
+const BRAND_COLORS = {
+  "COSRX":"#8b5cf6","Olive Young":"#16a34a","Some By Mi":"#0ea5e9","Pyunkang Yul":"#64748b","Anua":"#0d9488",
+  "Beauty of Joseon":"#b45309","Skin1004":"#65a30d","Round Lab":"#0284c7","Isntree":"#059669",
+  "Mediheal":"#dc2626","Torriden":"#0891b2","Abib":"#7c3aed","Rom&nd":"#e11d48","Peripera":"#db2777",
+  "3CE":"#9f1239","Dasique":"#f59e0b","Etude":"#ec4899","Clio":"#1f2937","Espoir":"#9333ea","Hera":"#111827","NAMING.":"#4f46e5",
+  "Mizon":"#2563eb","Jumiso":"#f97316","Purito":"#84cc16",
+};
+const tile = b => `<div class="p-visual" style="background:${BRAND_COLORS[b] || "#555"}">${b.replace(" ", "<br>")}</div>`;
+
+// ranking cards
+document.getElementById("rankings").innerHTML = items.map((p, i) => `
+  <article class="rank-card ${i === 0 ? "first" : ""}">
+    ${p.rankNote ? `<span class="rank-note">${p.rankNote}</span>` : ""}
+    <div class="rank-badge">${i + 1}</div>
+    ${tile(p.brand)}
+    <div class="p-body">
+      <div class="brand">${p.brand}</div>
+      <h3>${p.name}</h3>
+      <div class="p-meta">
+        <span class="stars">${"★".repeat(Math.round(p.rating))} <b>${p.rating}</b></span>
+        <span><b>${p.size}</b></span>
+        <span>Best for: <b>${p.skinTypes.join(", ")}</b></span>
+      </div>
+      <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      <div class="proscons">
+        <ul class="pros">${p.pros.map(x => `<li>${x}</li>`).join("")}</ul>
+        <ul class="cons">${p.cons.map(x => `<li>${x}</li>`).join("")}</ul>
+      </div>
+      <div class="buy-row">
+        <span class="price">$${p.price.toFixed(2)} <small>on YesStyle</small></span>
+        <a class="btn" href="${yesstyleLink(p)}" target="_blank" rel="sponsored noopener">
+          <i data-lucide="external-link" style="width:14px;height:14px"></i> Check Price
+        </a>
+      </div>
+    </div>
+  </article>`).join("");
+
+// comparison table
+document.getElementById("cmp-wrap").innerHTML = `<table class="cmp">
+  <tr><th>#</th><th>Product</th><th>Price</th><th>Rating</th><th>Best for</th><th>Watch out</th></tr>
+  ${items.map((p, i) => `<tr>
+    <td class="num">${i + 1}</td><td><b>${p.brand}</b> ${p.name}</td>
+    <td class="num">$${p.price.toFixed(2)}</td><td class="num">${p.rating} ★</td>
+    <td>${p.skinTypes.join(", ")}</td><td>${p.cons[0]}</td></tr>`).join("")}
+</table>`;
+
+// faq
+document.getElementById("faqs").innerHTML = cat.faqs.map(f => `
+  <details class="faq-item"><summary>${f.q}<i data-lucide="chevron-down" style="width:16px;height:16px"></i></summary><p>${f.a}</p></details>`).join("");
+
+// JSON-LD for AI citation
+document.getElementById("ldjson").textContent = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "mainEntity": cat.faqs.map(f => ({"@type": "Question", "name": f.q,
+        "acceptedAnswer": {"@type": "Answer", "text": f.a}}))
+    },
+    {
+      "@type": "ItemList",
+      "name": cat.h1,
+      "itemListElement": items.map((p, i) => ({"@type": "ListItem", "position": i + 1,
+        "name": p.brand + " " + p.name}))
+    }
+  ]
+});
+
+lucide.createIcons();
+</script>
+</body>
+</html>
