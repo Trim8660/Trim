@@ -12,12 +12,16 @@ const AFF_CONFIG = {
   campaign: "kbeauty-rankings", // utm_campaign for your own tracking
 };
 
-// YesStyle product page URL pattern:
-//   https://www.yesstyle.com/en/{slug}/info.html/p/{productId}
+// YesStyle product page URL pattern (verified live Oct 2026):
+//   https://www.yesstyle.com/en/{slug}/info.html/pid.{productId}
+// Products without a verified pid carry `search` instead, and link to a
+// YesStyle search results page — always valid, still affiliate-wrapped.
 // AWIN click-through wraps it:
 //   https://www.awin1.com/cread.php?awinmid={advertiser}&awinaffid={aff}&ued={encoded url}
 function yesstyleLink(product) {
-  const dest = `https://www.yesstyle.com/en/${product.slug}/info.html/p/${product.pid}`;
+  const dest = product.search
+    ? `https://www.yesstyle.com/en/list.html?bpt=48&q=${encodeURIComponent(product.search)}`
+    : `https://www.yesstyle.com/en/${product.slug}/info.html/pid.${product.pid}`;
   if (AFF_CONFIG.network === "awin") {
     const ued = encodeURIComponent(dest + `?utm_source=kbeauty-site&utm_medium=affiliate&utm_campaign=${AFF_CONFIG.campaign}`);
     return `https://www.awin1.com/cread.php?awinmid=${AFF_CONFIG.awinAdvertiserId}&awinaffid=${AFF_CONFIG.affiliateId}&ued=${ued}`;
