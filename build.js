@@ -23,6 +23,11 @@ fs.mkdirSync(OUT, { recursive: true });
 for (const f of ["affiliate.js", "data.js", "styles.css"]) {
   fs.copyFileSync(path.join(SRC, f), path.join(OUT, f));
 }
+// product images
+const IMG_SRC = path.join(SRC, "images");
+if (fs.existsSync(IMG_SRC)) {
+  fs.cpSync(IMG_SRC, path.join(OUT, "images"), { recursive: true });
+}
 
 // --- category pages at /{cat}/ ---
 const catTpl = fs.readFileSync(path.join(SRC, "category.html"), "utf8");
@@ -40,6 +45,7 @@ for (const cat of CATS) {
     .replaceAll('href="index.html"', 'href="../index.html"')
     .replaceAll('href="quiz.html"', 'href="../quiz.html"')
     .replaceAll('href="styles.css"', 'href="../styles.css"')
+    .replaceAll('src="images/', 'src="../images/')
     .replaceAll('src="affiliate.js"', 'src="../affiliate.js"')
     .replaceAll('src="data.js"', 'src="../data.js"')
     .replaceAll('category.html?cat=${k}', '../${k}/')

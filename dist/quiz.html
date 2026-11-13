@@ -122,7 +122,7 @@ function renderResults() {
     ${matches.map(({p, s}, i) => `
       <article class="rank-card ${i === 0 ? "first" : ""}">
         <div class="rank-badge">${i + 1}</div>
-        <div class="p-visual" style="background:${BRAND_COLORS[p.brand] || "#555"}">${p.brand.replace(" ", "<br>")}</div>
+        <div class="p-visual" style="background:${BRAND_COLORS[p.brand] || "#555"}">${p.brand.replace(" ", "<br>")}<img class="p-img" src="images/${p.id}.jpg" alt="${p.brand}" loading="lazy" onerror="this.remove()"></div>
         <div class="p-body">
           <div class="brand">${p.brand}</div>
           <h3>${p.name}</h3>

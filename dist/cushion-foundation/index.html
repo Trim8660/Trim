@@ -80,14 +80,16 @@ const BRAND_COLORS = {
   "3CE":"#9f1239","Dasique":"#f59e0b","Etude":"#ec4899","Clio":"#1f2937","Espoir":"#9333ea","Hera":"#111827","NAMING.":"#4f46e5",
   "Mizon":"#2563eb","Jumiso":"#f97316","Purito":"#84cc16",
 };
-const tile = b => `<div class="p-visual" style="background:${BRAND_COLORS[b] || "#555"}">${b.replace(" ", "<br>")}</div>`;
+// real YesStyle product photos where downloaded; color block stays as fallback
+// (img hides itself onerror, revealing the brand tile underneath)
+const tile = (b, id) => `<div class="p-visual" style="background:${BRAND_COLORS[b] || "#555"}">${b.replace(" ", "<br>")}<img class="p-img" src="../images/${id}.jpg" alt="${b}" loading="lazy" onerror="this.remove()"></div>`;
 
 // ranking cards
 document.getElementById("rankings").innerHTML = items.map((p, i) => `
   <article class="rank-card ${i === 0 ? "first" : ""}">
     ${p.rankNote ? `<span class="rank-note">${p.rankNote}</span>` : ""}
     <div class="rank-badge">${i + 1}</div>
-    ${tile(p.brand)}
+    ${tile(p.brand, p.id)}
     <div class="p-body">
       <div class="brand">${p.brand}</div>
       <h3>${p.name}</h3>
