@@ -65,7 +65,7 @@ for (const f of ["index.html", "quiz.html"]) {
 }
 
 // --- sitemap + robots ---
-const BASE = "https://kbeautyranked.com"; // swap for the real domain at deploy time
+const BASE = "https://decodekbeauty.com"; // production domain
 const urls = ["", "quiz.html", ...CATS.map(c => `${c}/`)];
 fs.writeFileSync(path.join(OUT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -11,7 +11,7 @@
 <body>
 <header class="topbar">
   <div class="wrap">
-    <a class="logo" href="index.html">K-Beauty<span>Ranked</span></a>
+    <a class="logo" href="index.html">Decode<span>K-Beauty</span></a>
     <nav class="topnav" id="topnav"></nav>
   </div>
 </header>
@@ -47,7 +47,7 @@
 
 <footer>
   <div class="wrap">
-    <p><b>Affiliate disclosure:</b> K-BeautyRanked is a participant in the YesStyle affiliate program. We may earn a commission when you buy through links on this page. Prices shown are YesStyle list prices at time of writing and may change.</p>
+    <p><b>Affiliate disclosure:</b> Decode K-Beauty is a participant in the YesStyle affiliate program. We may earn a commission when you buy through links on this page. Prices shown are YesStyle list prices at time of writing and may change.</p>
   </div>
 </footer>
 
@@ -61,7 +61,7 @@ const catKey = new URLSearchParams(location.search).get("cat") || "pimple-patche
 const cat = CATEGORIES[catKey] || CATEGORIES["pimple-patches"];
 const items = PRODUCTS.filter(p => p.cat === catKey);
 
-document.title = cat.h1 + " — K-BeautyRanked";
+document.title = cat.h1 + " — Decode K-Beauty";
 document.getElementById("h1").textContent = cat.h1;
 document.getElementById("answer").textContent = cat.answerBlock;
 document.getElementById("criteria-note").textContent =
