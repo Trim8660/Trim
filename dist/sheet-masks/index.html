@@ -17,9 +17,12 @@
   </div>
 </header>
 
-<main class="wrap">
-  <h1 id="h1"></h1>
-  <p class="updated"><i data-lucide="calendar-check" style="width:13px;height:13px"></i> Updated October 2026 · Tested by editors, priced live on YesStyle</p>
+<main class="wrap category-page">
+  <header class="category-header">
+    <p class="crumbs"><a href="../index.html">Home</a> / <span id="crumb-current">Rankings</span></p>
+    <h1 id="h1"></h1>
+    <p class="updated"><i data-lucide="calendar-check"></i> Updated October 2026 · Tested by editors, priced live on YesStyle</p>
+  </header>
 
   <!-- Answer block: written for AI-overview citation, 40-word direct answer first -->
   <div class="answer-block">
@@ -27,22 +30,52 @@
     <span id="answer"></span>
   </div>
 
-  <h2>Top 5 picks</h2>
-  <p class="section-note" id="criteria-note"></p>
-  <div id="rankings"></div>
+  <div class="ranking-layout">
+    <section class="ranking-results" aria-labelledby="picks-title">
+      <div class="ranking-heading">
+        <div>
+          <p class="section-eyebrow">The shortlist</p>
+          <h2 id="picks-title">Top 5 picks</h2>
+        </div>
+        <span class="result-count" id="result-count"></span>
+      </div>
+      <p class="section-note" id="criteria-note"></p>
+      <div id="rankings"></div>
+    </section>
 
-  <h2>Compare all five</h2>
-  <div class="table-scroll" id="cmp-wrap"></div>
+    <aside class="ranking-guide" aria-label="Buying guide">
+      <section class="guide-section">
+        <p class="section-eyebrow">Our method</p>
+        <h2>The five criteria</h2>
+        <ol class="guide-list" id="criteria-list"></ol>
+      </section>
+      <section class="guide-quiz-block">
+        <h2>Not sure where to start?</h2>
+        <p>Answer four questions and narrow the list down to products that fit your skin and budget.</p>
+        <a class="guide-quiz" href="../quiz.html">Find my match<i data-lucide="arrow-up-right"></i></a>
+      </section>
+    </aside>
+  </div>
 
-  <h2>Frequently asked</h2>
-  <div id="faqs"></div>
+  <section class="comparison-section" aria-labelledby="compare-title">
+    <p class="section-eyebrow">Side by side</p>
+    <h2 id="compare-title">Compare all five</h2>
+    <div class="table-scroll" id="cmp-wrap"></div>
+  </section>
 
-  <h2>How we test</h2>
-  <div class="method">
-    We buy every product retail from YesStyle and run it through the same five-point protocol before ranking:
-    <ul id="criteria-list"></ul>
-    Rankings are re-scored monthly when YesStyle pricing changes. We earn a commission on purchases made
-    through links on this page, at no cost to you.
+  <div class="category-lower">
+    <section>
+      <h2>Frequently asked</h2>
+      <div id="faqs"></div>
+    </section>
+    <section>
+      <h2>How we test</h2>
+      <div class="method">
+        We buy every product retail from YesStyle and run it through the same five-point protocol before ranking.
+        Rankings are re-scored monthly when YesStyle pricing changes. We earn a commission on purchases made
+        through links on this page, at no cost to you.
+      </div>
+    </section>
   </div>
 </main>
 
@@ -64,6 +97,10 @@ const items = PRODUCTS.filter(p => p.cat === catKey);
 
 document.title = cat.h1 + " — Decode K-Beauty";
 document.getElementById("h1").textContent = cat.h1;
+document.getElementById("crumb-current").textContent = cat.name;
+document.getElementById("result-count").textContent = `${items.length} products`;
+document.getElementById("picks-title").textContent = `Top ${items.length} picks`;
+document.getElementById("compare-title").textContent = `Compare all ${items.length}`;
 document.getElementById("answer").textContent = cat.answerBlock;
 document.getElementById("criteria-note").textContent =
   "Ranked after testing on five criteria: " + cat.criteria.join(" · ").toLowerCase() + ".";
@@ -88,10 +125,10 @@ const tile = (b, id) => `<div class="p-visual" style="background:${BRAND_COLORS[
 // ranking cards
 document.getElementById("rankings").innerHTML = items.map((p, i) => `
   <article class="rank-card ${i === 0 ? "first" : ""}">
-    ${p.rankNote ? `<span class="rank-note">${p.rankNote}</span>` : ""}
-    <div class="rank-badge">${i + 1}</div>
+    <div class="rank-rail"><span class="rank-badge">${i + 1}</span></div>
     ${tile(p.brand, p.id)}
     <div class="p-body">
+      ${p.rankNote ? `<span class="rank-note">${p.rankNote}</span>` : ""}
       <div class="brand">${p.brand}</div>
       <h3>${p.name}</h3>
       <div class="p-meta">
@@ -99,27 +136,33 @@ document.getElementById("rankings").innerHTML = items.map((p, i) => `
         <span><b>${p.size}</b></span>
         <span>Best for: <b>${p.skinTypes.join(", ")}</b></span>
       </div>
-      <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      <div class="tags">${(p.tags || []).map(t => `<span class="tag">${t}</span>`).join("")}</div>
       <div class="proscons">
-        <ul class="pros">${p.pros.map(x => `<li>${x}</li>`).join("")}</ul>
-        <ul class="cons">${p.cons.map(x => `<li>${x}</li>`).join("")}</ul>
+        <div>
+          <span class="proscons-label">Why it stands out</span>
+          <ul class="pros">${p.pros.map(x => `<li>${x}</li>`).join("")}</ul>
+        </div>
+        <div>
+          <span class="proscons-label">Keep in mind</span>
+          <ul class="cons">${p.cons.map(x => `<li>${x}</li>`).join("")}</ul>
+        </div>
       </div>
-      <div class="buy-row">
-        <span class="price">$${p.price.toFixed(2)} <small>on YesStyle</small></span>
-        <a class="btn" href="${yesstyleLink(p)}" target="_blank" rel="sponsored noopener">
-          <i data-lucide="external-link" style="width:14px;height:14px"></i> Check Price
-        </a>
-      </div>
+    </div>
+    <div class="buy-block">
+      <span class="price">$${p.price.toFixed(2)} <small>on YesStyle</small></span>
+      <a class="btn" href="${yesstyleLink(p)}" target="_blank" rel="sponsored noopener">
+        Check Price<i data-lucide="external-link"></i>
+      </a>
     </div>
   </article>`).join("");
 
 // comparison table
 document.getElementById("cmp-wrap").innerHTML = `<table class="cmp">
-  <tr><th>#</th><th>Product</th><th>Price</th><th>Rating</th><th>Best for</th><th>Watch out</th></tr>
-  ${items.map((p, i) => `<tr>
+  <thead><tr><th>#</th><th>Product</th><th>Price</th><th>Rating</th><th>Best for</th><th>Watch out</th></tr></thead>
+  <tbody>${items.map((p, i) => `<tr>
     <td class="num">${i + 1}</td><td><b>${p.brand}</b> ${p.name}</td>
     <td class="num">$${p.price.toFixed(2)}</td><td class="num">${p.rating} ★</td>
-    <td>${p.skinTypes.join(", ")}</td><td>${p.cons[0]}</td></tr>`).join("")}
+    <td>${p.skinTypes.join(", ")}</td><td>${p.cons[0]}</td></tr>`).join("")}</tbody>
 </table>`;
 
 // faq
