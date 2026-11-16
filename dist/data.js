@@ -76,6 +76,49 @@ const CATEGORIES = {
   },
 };
 
+const SKIN_PROFILES = {
+  "sensitive": {
+    path: "sensitive-skin",
+    navName: "Sensitive Skin",
+    menuDescription: "Gentle, low-irritation starting points",
+    h1: "Sensitive Skin: Gentle Korean Beauty Picks",
+    description: "Three careful starting points across sun care, hydration and spot care, selected from products tagged for sensitive skin in our current rankings.",
+    principles: ["Fragrance-conscious choices", "Comfort before aggressive actives", "Introduce one product at a time"],
+    categories: ["korean-sunscreen", "snail-serum", "pimple-patches"],
+    match: ["sensitive"],
+  },
+  "oily": {
+    path: "oily-acne-prone-skin",
+    navName: "Oily & Acne-Prone",
+    menuDescription: "Lightweight hydration and spot care",
+    h1: "Oily & Acne-Prone Skin: Lightweight K-Beauty Picks",
+    description: "A focused shortlist for shine, breakouts and makeup wear, drawn from products tagged for oily or acne-prone skin in our current rankings.",
+    principles: ["Lightweight layers", "Target spots without overdoing actives", "Comfort through the day"],
+    categories: ["pimple-patches", "korean-sunscreen", "cushion-foundation"],
+    match: ["oily", "acne"],
+  },
+  "dry": {
+    path: "dry-dehydrated-skin",
+    navName: "Dry & Dehydrated",
+    menuDescription: "Hydration and barrier-friendly comfort",
+    h1: "Dry & Dehydrated Skin: Hydrating K-Beauty Picks",
+    description: "Three hydration-focused starting points for tight or flaky-feeling skin, selected from products tagged for dry skin in our current rankings.",
+    principles: ["Hydrate before adding more actives", "Seal in lightweight layers", "Prioritize a comfortable finish"],
+    categories: ["snail-serum", "sheet-masks", "korean-sunscreen"],
+    match: ["dry"],
+  },
+  "combo": {
+    path: "combination-skin",
+    navName: "Combination Skin",
+    menuDescription: "Balanced routines without heavy layers",
+    h1: "Combination Skin: Balanced Korean Beauty Picks",
+    description: "A balanced shortlist for skin that wants hydration without unnecessary weight, drawn from products tagged for combination skin in our current rankings.",
+    principles: ["Balance hydration and weight", "Adjust layers by area", "Keep the core routine simple"],
+    categories: ["korean-sunscreen", "cushion-foundation", "snail-serum"],
+    match: ["combo"],
+  },
+};
+
 const PRODUCTS = [
   // ---- Pimple patches ----
   { id: "cosrx-patch", cat: "pimple-patches", brand: "COSRX", name: "Acne Pimple Master Patch", slug: "cosrx-acne-pimple-master-patch-24-patches", pid: "1052684647", price: 5.9, size: "24 patches", rating: 4.7, skinTypes: ["oily","combo","acne"], concerns: ["acne"], tags: ["Hydrocolloid","Drug-free","Ultra-thin"], pros: ["Nearly invisible under makeup","Best adhesion overnight","Cheapest per patch in class"], cons: ["Flat patches only — weak on cystic acne"], rankNote: "Best overall" },

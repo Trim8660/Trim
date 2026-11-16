@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensitive Skin: Gentle Korean Beauty Picks — Decode K-Beauty</title>
+<meta name="description" id="meta-description" content="Three gentle Korean beauty starting points for sensitive skin, selected from the current Decode K-Beauty rankings.">
+<meta name="google-site-verification" content="OelPNVXtkoXxN8f8sho1C7HrqtLXh4Zpw4z5itkQIRo">
+<link rel="canonical" id="canonical-link" href="https://decodekbeauty.com/sensitive-skin/">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../index.html">Decode<span>K-Beauty</span></a>
+    <nav class="topnav" id="topnav"></nav>
+  </div>
+</header>
+
+<main class="wrap skin-page">
+  <header class="category-header">
+    <p class="crumbs"><a href="../index.html">Home</a> / By Skin Type / <span id="skin-name">Sensitive Skin</span></p>
+    <p class="section-eyebrow">By skin type</p>
+    <h1 id="h1"></h1>
+    <p class="skin-intro" id="skin-intro"></p>
+    <p class="updated"><i data-lucide="layers-2"></i> Curated from the current category rankings · Three focused picks</p>
+  </header>
+
+  <section class="skin-principles" id="principles" aria-label="What matters for this skin type"></section>
+
+  <div class="ranking-heading recommendation-heading">
+    <div>
+      <p class="section-eyebrow">Your focused shortlist</p>
+      <h2>Three places to start</h2>
+    </div>
+    <span class="result-count" id="result-count"></span>
+  </div>
+  <div class="recommendation-grid" id="recommendations"></div>
+
+  <section class="skin-next">
+    <div>
+      <h2>Want a narrower match?</h2>
+      <p>Answer four questions to filter by category, skin type, concern and budget.</p>
+    </div>
+    <a class="btn" href="../quiz.html">Find my match<i data-lucide="arrow-up-right"></i></a>
+  </section>
+
+  <div class="method">
+    <b>How this shortlist is selected.</b> Each skin profile takes the first matching product from three relevant category rankings. Skin-type labels come from our product database and are intended as starting points, not medical advice or a guarantee of compatibility. Introduce one new product at a time and patch test when appropriate.
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Affiliate disclosure:</b> Decode K-Beauty participates in the YesStyle affiliate program and may earn a commission from qualifying purchases, at no additional cost to you. Prices and availability can change.</p>
+  </div>
+</footer>
+
+<script type="application/ld+json" id="ldjson"></script>
+<script src="../affiliate.js"></script>
+<script src="../data.js"></script>
+<script src="../nav.js"></script>
+<script>
+const skinKey = "combo"; // baked at build time
+const skin = SKIN_PROFILES[skinKey] || SKIN_PROFILES.sensitive;
+const items = skin.categories.map(catKey =>
+  PRODUCTS.find(p => p.cat === catKey && skin.match.some(type => p.skinTypes.includes(type)))
+).filter(Boolean);
+
+document.title = skin.h1 + " — Decode K-Beauty";
+document.getElementById("meta-description").content = skin.description;
+document.getElementById("canonical-link").href = `https://decodekbeauty.com/${skin.path}/`;
+document.getElementById("h1").textContent = skin.h1;
+document.getElementById("skin-name").textContent = skin.navName;
+document.getElementById("skin-intro").textContent = skin.description;
+document.getElementById("result-count").textContent = `${items.length} products`;
+document.getElementById("principles").innerHTML = skin.principles.map(principle =>
+  `<div><i data-lucide="check"></i><span>${principle}</span></div>`).join("");
+
+renderNavigation("skin", skinKey);
+
+const SKIN_BRAND_COLORS = {
+  "COSRX":"#8b5cf6","Olive Young":"#16a34a","Some By Mi":"#0ea5e9","Pyunkang Yul":"#64748b","Anua":"#0d9488",
+  "Beauty of Joseon":"#b45309","Skin1004":"#65a30d","Round Lab":"#0284c7","Isntree":"#059669",
+  "Mediheal":"#dc2626","Torriden":"#0891b2","Abib":"#7c3aed","Rom&nd":"#e11d48","Peripera":"#db2777",
+  "3CE":"#9f1239","Dasique":"#f59e0b","Etude":"#ec4899","Clio":"#1f2937","Espoir":"#9333ea","Hera":"#111827","NAMING.":"#4f46e5",
+  "Mizon":"#2563eb","Jumiso":"#f97316","Purito":"#84cc16",
+};
+
+document.getElementById("recommendations").innerHTML = items.map(p => `
+  <article class="rec-card">
+    <div class="rec-visual" style="background:${SKIN_BRAND_COLORS[p.brand] || "#64748b"}">
+      <span>${p.brand}</span>
+      <img src="../images/${p.id}.jpg" alt="${p.brand} ${p.name}" loading="lazy" onerror="this.remove()">
+    </div>
+    <div class="rec-body">
+      <p class="rec-category">${CATEGORIES[p.cat].name}</p>
+      <div class="brand">${p.brand}</div>
+      <h3>${p.name}</h3>
+      <p class="rec-reason">${p.pros[0]}</p>
+      <div class="tags">${(p.tags || []).slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      <div class="rec-footer">
+        <span class="price">$${p.price.toFixed(2)}<small>on YesStyle</small></span>
+        <a class="btn" href="${yesstyleLink(p)}" target="_blank" rel="sponsored noopener">View product<i data-lucide="external-link"></i></a>
+      </div>
+    </div>
+  </article>`).join("");
+
+document.getElementById("ldjson").textContent = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": skin.h1,
+  "itemListElement": items.map((p, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": p.brand + " " + p.name,
+    "url": `https://decodekbeauty.com/${p.cat}/`
+  }))
+});
+
+lucide.createIcons();
+</script>
+</body>
+</html>

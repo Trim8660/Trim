@@ -90,6 +90,7 @@
 
 <script src="../affiliate.js"></script>
 <script src="../data.js"></script>
+<script src="../nav.js"></script>
 <script>
 const catKey = "lip-tint"; // baked at build time
 const cat = CATEGORIES[catKey] || CATEGORIES["pimple-patches"];
@@ -107,8 +108,7 @@ document.getElementById("criteria-note").textContent =
 document.getElementById("criteria-list").innerHTML = cat.criteria.map(c => `<li>${c}</li>`).join("");
 
 // nav
-document.getElementById("topnav").innerHTML = Object.entries(CATEGORIES).map(([k, c]) =>
-  `<a href="../${k}/" class="${k === catKey ? "active" : ""}">${c.name}</a>`).join("") + `<a href="../blog/">Blog</a>`;
+renderNavigation("rankings", catKey);
 
 // brand color per brand for the product tile
 const BRAND_COLORS = {

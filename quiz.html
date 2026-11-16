@@ -37,9 +37,9 @@
 
 <script src="affiliate.js"></script>
 <script src="data.js"></script>
+<script src="nav.js"></script>
 <script>
-document.getElementById("topnav").innerHTML = Object.entries(CATEGORIES).map(([k, c]) =>
-  `<a href="category.html?cat=${k}">${c.name}</a>`).join("") + `<a href="blog/">Blog</a>`;
+renderNavigation();
 
 const QUESTIONS = [
   { key: "cat", title: "What are you shopping for?", opts: [
