@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Ingredient Decodes & Seasonal Tests — Decode K-Beauty</title>
+<meta name="description" content="Ingredient decodes, seasonal skincare tests and honest Korean beauty reviews from the Decode K-Beauty editors.">
+<meta name="google-site-verification" content="OelPNVXtkoXxN8f8sho1C7HrqtLXh4Zpw4z5itkQIRo">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../index.html">Decode<span>K-Beauty</span></a>
+    <nav class="topnav" id="topnav"></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Blog</h1>
+  <p class="updated" style="font-size:14px;max-width:600px;margin-top:8px">
+    Ingredient decodes, seasonal skincare tests and the reasoning behind our rankings.
+  </p>
+
+  <div class="blog-grid">
+    <div class="blog-card">
+      <img class="thumb" src="../images/cosrx-snail.jpg" alt="COSRX Advanced Snail 96 Mucin Power Essence">
+      <div>
+        <h2><a href="winter-serum-essence-2026/">Best Korean Serums & Essences for Winter 2026: 6 Editor-Tested Picks</a></h2>
+        <p class="meta">November 16, 2026 · Seasonal test · Serums & essences</p>
+        <p>Winter wrecks your skin barrier. We tested 11 Korean serums and essences through the first
+        cold snap and kept six — full ingredient decode, texture notes, and who each one suits.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Affiliate disclosure:</b> Decode K-Beauty participates in the YesStyle affiliate program and earns commissions from qualifying purchases, at no additional cost to you. Rankings are never influenced by commission rates.</p>
+  </div>
+</footer>
+
+<script src="../affiliate.js"></script>
+<script src="../data.js"></script>
+<script>
+document.getElementById("topnav").innerHTML = Object.entries(CATEGORIES).map(([k, c]) =>
+  `<a href="../${k}/">${c.name}</a>`).join("") + `<a href="index.html" class="active">Blog</a>`;
+lucide.createIcons();
+</script>
+</body>
+</html>

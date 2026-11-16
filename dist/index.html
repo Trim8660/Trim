@@ -53,7 +53,7 @@
 <script src="data.js"></script>
 <script>
 document.getElementById("topnav").innerHTML = Object.entries(CATEGORIES).map(([k, c]) =>
-  `<a href="${k}/">${c.name}</a>`).join("");
+  `<a href="${k}/">${c.name}</a>`).join("") + `<a href="blog/">Blog</a>`;
 
 const CAT_ICONS = {
   "pimple-patches": "shield", "korean-sunscreen": "sun", "sheet-masks": "layers",

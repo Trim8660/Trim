@@ -71,7 +71,7 @@ document.getElementById("criteria-list").innerHTML = cat.criteria.map(c => `<li>
 
 // nav
 document.getElementById("topnav").innerHTML = Object.entries(CATEGORIES).map(([k, c]) =>
-  `<a href="../${k}/" class="${k === catKey ? "active" : ""}">${c.name}</a>`).join("");
+  `<a href="../${k}/" class="${k === catKey ? "active" : ""}">${c.name}</a>`).join("") + `<a href="../blog/">Blog</a>`;
 
 // brand color per brand for the product tile
 const BRAND_COLORS = {

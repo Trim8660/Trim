@@ -29,6 +29,19 @@ if (fs.existsSync(IMG_SRC)) {
   fs.cpSync(IMG_SRC, path.join(OUT, "images"), { recursive: true });
 }
 
+// --- blog index and articles ---
+const BLOG_SRC = path.join(SRC, "blog");
+const blogUrls = [];
+if (fs.existsSync(BLOG_SRC)) {
+  fs.cpSync(BLOG_SRC, path.join(OUT, "blog"), { recursive: true });
+  blogUrls.push("blog/");
+  for (const entry of fs.readdirSync(BLOG_SRC, { withFileTypes: true })) {
+    if (entry.isDirectory() && fs.existsSync(path.join(BLOG_SRC, entry.name, "index.html"))) {
+      blogUrls.push(`blog/${entry.name}/`);
+    }
+  }
+}
+
 // --- category pages at /{cat}/ ---
 const catTpl = fs.readFileSync(path.join(SRC, "category.html"), "utf8");
 const CATKEY_LINE = 'const catKey = new URLSearchParams(location.search).get("cat") || "pimple-patches";';
@@ -44,6 +57,7 @@ for (const cat of CATS) {
   html = html
     .replaceAll('href="index.html"', 'href="../index.html"')
     .replaceAll('href="quiz.html"', 'href="../quiz.html"')
+    .replaceAll('href="blog/"', 'href="../blog/"')
     .replaceAll('href="styles.css"', 'href="../styles.css"')
     .replaceAll('src="images/', 'src="../images/')
     .replaceAll('src="affiliate.js"', 'src="../affiliate.js"')
@@ -72,7 +86,7 @@ for (const f of ["index.html", "quiz.html"]) {
 
 // --- sitemap + robots ---
 const BASE = "https://decodekbeauty.com"; // production domain
-const urls = ["", "quiz.html", ...CATS.map(c => `${c}/`)];
+const urls = ["", "quiz.html", ...CATS.map(c => `${c}/`), ...blogUrls];
 fs.writeFileSync(path.join(OUT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map(u => `  <url><loc>${BASE}/${u}</loc><changefreq>monthly</changefreq></url>`).join("\n")}
@@ -83,4 +97,4 @@ Allow: /
 Sitemap: ${BASE}/sitemap.xml
 `);
 
-console.log(`built ${CATS.length} category pages + ${2} root pages → dist/`);
+console.log(`built ${CATS.length} category pages + 2 root pages + ${blogUrls.length} blog pages → dist/`);
