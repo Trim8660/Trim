@@ -18,7 +18,7 @@
 </header>
 
 <main class="wrap quiz-shell">
-  <h1 style="font-size:26px">Find your match</h1>
+  <h1>Find your match</h1>
   <p class="updated" style="margin-bottom:18px">4 questions · 30 seconds · matched from our tested rankings</p>
 
   <div class="quiz-card" id="quiz-card">
@@ -81,7 +81,7 @@ function renderQ() {
   document.getElementById("q-area").innerHTML = `
     <div class="q-title">${q.title}</div>
     ${q.opts.map(([v, label, icon]) => `
-      <div class="opt" data-v="${v}"><i data-lucide="${icon}" style="width:17px;height:17px;color:var(--accent)"></i>${label}</div>`).join("")}
+      <button type="button" class="opt" data-v="${v}"><i data-lucide="${icon}" style="width:17px;height:17px;color:var(--accent)"></i>${label}</button>`).join("")}
     <div class="quiz-actions">
       ${step > 0 ? `<button class="btn ghost" id="back"><i data-lucide="arrow-left" style="width:14px;height:14px"></i> Back</button>` : "<span></span>"}
     </div>`;
