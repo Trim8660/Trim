@@ -36,7 +36,7 @@ Research date: 18 November 2026
 
 ## Template used for Decode K-Beauty
 
-- Blog index: editorial positioning, one featured seasonal guide, more stories, a relevant skin-type next step and a transparent writing method.
+- Blog index: a quiet editorial heading, one featured seasonal guide with a single image, and a simple list of additional stories without promotional modules.
 - Article opening: specific headline, practical deck, publication date, reading time, quick answer and table of contents.
 - Context: describe the reader's concern before introducing products; distinguish desk research from first-hand testing.
 - Explanation: define the relevant skin or ingredient concepts and link authoritative sources.
