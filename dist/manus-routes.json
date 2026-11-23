@@ -1,0 +1,68 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "title": "Home"
+    },
+    {
+      "path": "/index.html",
+      "title": "Home"
+    },
+    {
+      "path": "/quiz.html",
+      "title": "Skin match quiz"
+    },
+    {
+      "path": "/pimple-patches/",
+      "title": "Pimple Patches"
+    },
+    {
+      "path": "/korean-sunscreen/",
+      "title": "Korean Sunscreens"
+    },
+    {
+      "path": "/sheet-masks/",
+      "title": "Sheet Masks"
+    },
+    {
+      "path": "/snail-serum/",
+      "title": "Snail Mucin Serums"
+    },
+    {
+      "path": "/lip-tint/",
+      "title": "Lip Tints"
+    },
+    {
+      "path": "/cushion-foundation/",
+      "title": "Cushion Foundations"
+    },
+    {
+      "path": "/sensitive-skin/",
+      "title": "Sensitive Skin"
+    },
+    {
+      "path": "/oily-acne-prone-skin/",
+      "title": "Oily & Acne-Prone"
+    },
+    {
+      "path": "/dry-dehydrated-skin/",
+      "title": "Dry & Dehydrated"
+    },
+    {
+      "path": "/combination-skin/",
+      "title": "Combination Skin"
+    },
+    {
+      "path": "/blog/",
+      "title": "The K-Beauty Edit"
+    },
+    {
+      "path": "/blog/winter-serum-essence-2026/",
+      "title": "winter serum essence 2026"
+    },
+    {
+      "path": "/blog/winter-skincare-routine/",
+      "title": "winter skincare routine"
+    }
+  ]
+}

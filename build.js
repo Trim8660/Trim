@@ -26,7 +26,7 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 
 // --- shared files, copied to dist root ---
-for (const f of ["affiliate.js", "data.js", "nav.js", "styles.css", "home.css", "tokens.css", "base.css"]) {
+for (const f of ["affiliate.js", "data.js", "nav.js", "hero-motion.js", "styles.css", "home.css", "tokens.css", "base.css"]) {
   fs.copyFileSync(path.join(SRC, f), path.join(OUT, f));
 }
 // product images
@@ -106,6 +106,17 @@ for (const f of ["index.html", "quiz.html"]) {
     .replaceAll('category.html?cat=${answers.cat}', '${answers.cat}/');
   fs.writeFileSync(path.join(OUT, f), html);
 }
+
+// Preview route manifest is derived from the same source as the static output.
+const previewRoutes = [
+  { path: "/", title: "Home" },
+  { path: "/index.html", title: "Home" },
+  { path: "/quiz.html", title: "Skin match quiz" },
+  ...CATS.map(c => ({ path: `/${c}/`, title: dataContext.CATEGORIES[c].name })),
+  ...SKINS.map(s => ({ path: `/${s.path}/`, title: s.navName })),
+  ...blogUrls.map(url => ({ path: `/${url}`, title: url === "blog/" ? "The K-Beauty Edit" : url.split("/")[1].replaceAll("-", " ") }))
+];
+fs.writeFileSync(path.join(OUT, "manus-routes.json"), JSON.stringify({ routes: previewRoutes }, null, 2) + "\n");
 
 // --- sitemap + robots ---
 const BASE = "https://decodekbeauty.com"; // production domain

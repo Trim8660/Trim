@@ -1,21 +1,4 @@
-/* Hallmark · shape: Editorial cabinet · genre: editorial · theme: custom · redesign: full · job: buy · idea: "Real K-beauty products arranged as an interactive editorial cabinet" · vibe: "Fresh, precise, cultured, tactile"
- * paper: oklch(98.7% 0.004 180) · accent: oklch(46% 0.07 175) · display: Cormorant Garamond · body: DM Sans · hero: Ledge cabinet · nav: Masthead with drop-down edits · footer: Editorial colophon · imagery: product photography and licensed portrait · signature: ten-product cutout fan
- * axes: light/roman-serif/cool · posture: Committed · contrast: pass · fold: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P4 H5 E4 S5 R4 V4 · weakest: R, the fan is the single expressive gesture so the remaining sections stay quiet */
-/* Hallmark · waive 79 · the quick-link band begins at 720px · a visible next section is intentional in this reference-led Ledge hero */
-/* Hallmark · hero-review: in-thread · 1 finding · 1 resolved */
-/* Hallmark · reworded "We test Korean beauty products. Then we rank them." to "We test. Then we rank." · 58 keeps the ranking statement compact */
-/* Hallmark · reworded "Not sure where to start?" to "Your skin sets the shortlist." · 58 makes the skin-type action specific */
-/* Hallmark · dropped "All rankings" · the testing statement introduces the same complete category grid */
-/* Hallmark · reworded "Best Korean Pimple Patches" to "Pimple Patches" · 58 removes repeated category boilerplate */
-/* Hallmark · reworded "Best Korean Sunscreens" to "Korean Sunscreens" · 58 removes repeated category boilerplate */
-/* Hallmark · reworded "Best Korean Sheet Masks" to "Sheet Masks" · 58 removes repeated category boilerplate */
-/* Hallmark · reworded "Best Snail Mucin Serums" to "Snail Mucin Serums" · 58 removes repeated category boilerplate */
-/* Hallmark · reworded "Best Korean Lip Tints" to "Lip Tints" · 58 removes repeated category boilerplate */
-/* Hallmark · reworded "Best Korean Cushion Foundations" to "Cushion Foundations" · 58 removes repeated category boilerplate */
-/* Hallmark · dropped "$20." · the original beginner guidance remains available inside the collapsed disclosure */
-/* Hallmark · waive 49b · both story headlines wrap to two lines at 320px · editorial article titles are real phrases that cannot be shortened further */
-/* Hallmark · finish-review: in-thread · 2 findings · 2 resolved · gap: none */
+/* Decode K-Beauty: calm editorial typography and a sculptural product edit. */
 @import url("./tokens.css");
 @import url("./base.css");
 
@@ -61,24 +44,6 @@
 .text-link { display: inline-flex; align-items: center; min-height: 48px; color: var(--color-accent); font-size: var(--text-sm); font-weight: 600; text-decoration: underline; text-decoration-color: var(--color-rule); white-space: nowrap; transition: color var(--dur-micro) var(--ease-out), text-decoration-color var(--dur-micro) var(--ease-out); }
 .text-link:hover { color: var(--color-ink); text-decoration-color: var(--color-accent); }
 .text-link:active { color: var(--color-ink-2); }
-
-.product-fan { --fan-s: 1; --fan-stage-height: 560px; position: relative; isolation: isolate; justify-self: end; width: 100%; max-width: 720px; height: var(--fan-stage-height); }
-.product-fan__item { position: absolute; bottom: calc(72px * var(--fan-s)); left: 50%; z-index: var(--fan-z); display: block; width: calc(var(--fan-w) * var(--fan-s)); min-width: 44px; color: var(--color-ink); text-decoration: none; filter: drop-shadow(0 18px 14px var(--color-product-shadow)) drop-shadow(0 0 1px var(--color-product-edge)); transform: translate(calc(-50% + (var(--fan-x) * var(--fan-s))), calc(var(--fan-y) * var(--fan-s))) rotate(var(--fan-r)); transform-origin: 50% 85%; transition: transform var(--dur-short) var(--ease-out); }
-.product-fan__item--1 { --fan-w: 105px; --fan-x: -260px; --fan-y: -150px; --fan-r: -16deg; --fan-z: 2; }
-.product-fan__item--2 { --fan-w: 130px; --fan-x: -175px; --fan-y: -110px; --fan-r: -10deg; --fan-z: 4; }
-.product-fan__item--3 { --fan-w: 118px; --fan-x: -40px; --fan-y: -155px; --fan-r: -3deg; --fan-z: 3; }
-.product-fan__item--4 { --fan-w: 100px; --fan-x: 75px; --fan-y: -190px; --fan-r: 4deg; --fan-z: 3; }
-.product-fan__item--5 { --fan-w: 105px; --fan-x: 180px; --fan-y: -140px; --fan-r: 10deg; --fan-z: 4; }
-.product-fan__item--6 { --fan-w: 100px; --fan-x: 260px; --fan-y: -150px; --fan-r: 15deg; --fan-z: 2; }
-.product-fan__item--7 { --fan-w: 225px; --fan-x: -220px; --fan-y: 20px; --fan-r: -9deg; --fan-z: 7; }
-.product-fan__item--8 { --fan-w: 170px; --fan-x: -70px; --fan-y: 0px; --fan-r: -4deg; --fan-z: 10; }
-.product-fan__item--9 { --fan-w: 230px; --fan-x: 95px; --fan-y: 10px; --fan-r: 5deg; --fan-z: 8; }
-.product-fan__item--10 { --fan-w: 185px; --fan-x: 245px; --fan-y: 30px; --fan-r: 10deg; --fan-z: 6; }
-.product-fan__item img { display: block; width: 100%; height: auto; object-fit: contain; }
-.product-fan__item:hover, .product-fan__item:focus-visible { z-index: var(--z-raised); transform: translate(calc(-50% + (var(--fan-x) * var(--fan-s))), calc(var(--fan-y) * var(--fan-s))) rotate(0deg) translateY(-12px) scale(1.16); }
-.product-fan__item:active { transform: translate(calc(-50% + (var(--fan-x) * var(--fan-s))), calc(var(--fan-y) * var(--fan-s))) rotate(0deg) translateY(-6px) scale(1.08); }
-.product-fan__label { position: absolute; bottom: calc(-1 * var(--space-xl)); left: 50%; width: max-content; max-width: 180px; padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-card); background: var(--color-field); color: var(--color-field-ink); font-size: var(--text-xs); line-height: 1.4; text-align: center; opacity: 0; pointer-events: none; transform: translateX(-50%); transition: opacity var(--dur-micro) var(--ease-out); }
-.product-fan__item:hover .product-fan__label, .product-fan__item:focus-visible .product-fan__label { opacity: 1; }
 
 .quick-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--color-paper); }
 .quick-nav__item { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: var(--space-2xs) var(--space-sm); align-content: center; min-height: 136px; padding: var(--space-lg); color: var(--color-ink); text-decoration: none; transition: background-color var(--dur-short) var(--ease-out); }
@@ -168,19 +133,10 @@
 .site-footer__bottom { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-lg); margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); color: var(--color-muted); font-size: var(--text-xs); }
 .photo-credit { max-width: 72ch; text-align: right; }
 
-@media (max-width: 1100px) {
-  .product-fan { --fan-s: 0.74; --fan-stage-height: 480px; }
-}
-
-@media (max-width: 1400px) and (min-width: 1101px) {
-  .product-fan { --fan-s: 0.84; --fan-stage-height: 520px; }
-}
-
 @media (max-width: 900px) {
   :root { --hero-height: auto; }
   .home-hero__grid { grid-template-columns: minmax(0, 1fr); padding-top: var(--space-2xl); }
   .home-hero h1 { max-width: 9ch; }
-  .product-fan { --fan-s: 0.9; --fan-stage-height: 500px; justify-self: center; max-width: 720px; }
   .editorial-feature { grid-template-columns: minmax(0, 1fr); }
   .editorial-feature__media { min-height: 520px; }
   .editorial-feature__copy { min-height: 360px; }
@@ -197,7 +153,6 @@
   .topnav { justify-content: space-between; width: 100%; margin-left: 0; padding-bottom: var(--space-xs); }
   .topnav > .nav-link, .topnav > .nav-item > summary { padding: var(--space-xs) var(--space-sm); }
   .nav-menu { position: fixed; top: var(--header-height); right: var(--gutter); left: var(--gutter); width: auto; max-height: calc(100svh - var(--header-height) - var(--space-md)); overflow-y: auto; }
-  .product-fan { --fan-s: 0.64; --fan-stage-height: 420px; }
   .quick-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .quick-nav__item { min-height: 120px; padding: var(--space-md); }
   .quick-nav__item:first-child { padding-left: var(--space-md); }
@@ -224,8 +179,6 @@
   .home-hero__lede { margin-top: var(--space-md); font-size: var(--text-md); }
   .home-hero__actions { gap: var(--space-sm); margin-top: var(--space-lg); }
   .button { padding: 0 var(--space-md); }
-  .product-fan { --fan-s: 0.48; --fan-stage-height: 340px; }
-  .product-fan__label { padding: var(--space-xs); font-size: var(--text-xs); }
   .editorial-feature__media { min-height: 400px; }
   .editorial-feature__copy { min-height: 0; padding: var(--space-lg); }
   .comparison__grid { gap: var(--space-lg) var(--space-md); }
@@ -239,10 +192,79 @@
 
 @media (max-width: 360px) {
   .home-hero__actions { align-items: flex-start; flex-direction: column; }
-  .product-fan { --fan-s: 0.4; --fan-stage-height: 310px; }
   .quick-nav__description { font-size: var(--text-xs); }
   .cat-grid { grid-template-columns: minmax(0, 1fr); }
   .skin-band__links { grid-template-columns: minmax(0, 1fr); }
   .skin-band__links a + a { border-left: 0; }
   .skin-band__links a:nth-child(n + 2) { border-top: var(--rule-hair) solid color-mix(in oklab, var(--color-field-ink) 35%, transparent); }
 }
+
+/* Refined editorial homepage: product images remain complete, never overlapping. */
+.home-hero { background: #eef3ef; }
+.home-hero__grid { grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr); gap: clamp(32px, 5vw, 76px); min-height: 620px; padding-block: 72px; }
+.home-hero h1 { font-size: clamp(4.2rem, 6.8vw, 6.9rem); line-height: .88; letter-spacing: -.035em; }
+.eyebrow { color: #51746a; font-family: var(--font-body); font-size: .6875rem; font-weight: 600; line-height: 1.4; letter-spacing: .17em; text-transform: uppercase; }
+.home-hero__eyebrow { margin-bottom: 24px; }
+.home-hero__lede { max-width: 28ch; }
+.button { border-radius: 0; }
+/* A quiet editorial shelf: one baseline, generous space, and consistent captions. */
+.fan { --shelf-image-height: 232px; --shelf-item-width: 150px; min-width: 0; }
+.fan__heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
+.fan__heading h2 { margin-top: 6px; font-size: clamp(1.8rem, 2.35vw, 2.5rem); font-weight: 400; line-height: 1; }
+.fan__edition { flex: none; padding-bottom: 3px; color: #647b70; font-size: .625rem; font-weight: 600; letter-spacing: .15em; white-space: nowrap; }
+.fan__viewport { position: relative; overflow-x: auto; overflow-y: hidden; overscroll-behavior-inline: contain; scrollbar-width: thin; scrollbar-color: #a5bab0 transparent; }
+.fan__viewport::before { position: absolute; top: calc(20px + var(--shelf-image-height)); right: 0; left: 0; height: 1px; background: #c5d5cc; content: ''; pointer-events: none; }
+.fan__track, .fan__cycle { display: flex; width: max-content; }
+.fan__cycle { flex: 0 0 auto; }
+.fan__stage { display: flex; flex: 0 0 auto; margin: 20px 0 0; padding: 0; list-style: none; }
+.fan--animated .fan__viewport { overflow: hidden; }
+.fan--animated .fan__track { animation: fan-drift var(--fan-duration, 120s) linear infinite; }
+.fan--animated .fan__track[data-paused="true"] { animation-play-state: paused; }
+@media (hover: hover) { .fan--animated .fan__viewport:hover .fan__track { animation-play-state: paused; } }
+@keyframes fan-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.fan__item { flex: 0 0 var(--shelf-item-width); width: var(--shelf-item-width); }
+.fan__product { display: flex; flex-direction: column; height: 100%; padding: 0 9px; color: #294b3e; text-align: center; text-decoration: none; }
+.fan__image { display: block; height: var(--shelf-image-height); padding: 10px 8px 12px; }
+.fan__product img { display: block; width: 100%; max-width: none; height: 100%; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 9px 7px rgba(35, 60, 48, .1)); transition: transform .24s ease; }
+.fan__product:hover img { transform: translateY(-5px); }
+.fan__product:focus-visible { outline: 2px solid #315f4f; outline-offset: -2px; }
+.fan__caption { display: block; min-height: 69px; padding: 15px 2px 5px; }
+.fan__brand { display: block; color: #4d6d5f; font-size: .625rem; font-weight: 600; line-height: 1.3; letter-spacing: .09em; text-transform: uppercase; }
+.fan__name { display: -webkit-box; overflow: hidden; margin-top: 5px; color: #344b40; font-size: .75rem; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.fan__meta { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 6px; }
+.fan__hint { color: #566a62; font-size: .75rem; }
+.fan__toggle { min-height: 40px; padding: 6px 0 6px 12px; border: 0; background: transparent; color: #315f4f; font: 600 .75rem/1.2 var(--font-body); cursor: pointer; }
+.fan__toggle[hidden] { display: none; }
+.fan__toggle:hover { text-decoration: underline; }
+.fan__toggle:focus-visible { outline: 2px solid #315f4f; outline-offset: 3px; }
+.fan__toggle-icon { display: inline-block; min-width: 16px; font-size: .8rem; }
+.fan__directory { margin-top: 14px; border-top: 1px solid #bdcec5; }
+.fan__directory summary { display: flex; justify-content: space-between; align-items: center; min-height: 44px; color: #315f4f; font-size: .8125rem; font-weight: 600; cursor: pointer; list-style: none; }
+.fan__directory summary::-webkit-details-marker { display: none; }
+.fan__directory[open] summary span { transform: rotate(45deg); }
+.fan__directory ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; margin: 0; padding: 0 0 12px; list-style: none; }
+.fan__directory li { border-top: 1px solid #d6e1da; }
+.fan__directory li a { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; min-height: 44px; padding: 10px 0; color: #284a3d; font-size: .75rem; line-height: 1.4; text-decoration: none; }
+.fan__directory li a:hover { text-decoration: underline; }
+.fan__directory li a span:last-child { color: #64766c; white-space: nowrap; }
+.quick-nav__item svg { stroke-width: 1.5; }
+.editorial-feature__media img { object-position: 35% 50%; }
+.editorial-feature__media figcaption { position: absolute; right: 12px; bottom: 12px; padding: 4px 8px; background: rgba(255,255,255,.9); color: #465b50; font: 11px/1.4 var(--font-body); }
+.editorial-feature__copy .eyebrow { margin-bottom: 20px; }
+.editorial-feature__copy { padding: clamp(28px, 4vw, 64px); }
+@media (max-width: 1100px) {
+  .home-hero__grid { grid-template-columns: minmax(0, 1fr); gap: 44px; padding-block: 60px; }
+  .home-hero h1 { font-size: clamp(3.9rem, 10vw, 6rem); }
+}
+@media (max-width: 600px) {
+  .home-hero__grid { gap: 36px; padding-block: 48px 36px; }
+  .home-hero h1 { font-size: clamp(3.5rem, 13vw, 4.7rem); }
+  .home-hero__eyebrow { margin-bottom: 18px; }
+  .fan { --shelf-image-height: 205px; --shelf-item-width: 140px; }
+  .fan__heading h2 { font-size: 1.85rem; }
+  .fan__directory ul { grid-template-columns: minmax(0, 1fr); }
+  .editorial-feature { gap: 0; }
+  .editorial-feature__media { min-height: 0; aspect-ratio: 4 / 3; }
+  .editorial-feature__copy { padding: 32px 24px; }
+}
+@media (prefers-reduced-motion: reduce) { .fan__product img { transition: none; } }
