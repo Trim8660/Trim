@@ -3,49 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Decode K-Beauty — Korean Skincare & Makeup, Decoded and Ranked</title>
+<title>Decode K-Beauty | Korean Skincare & Makeup, Decoded and Ranked</title>
 <meta name="description" content="Editor-tested rankings of Korean skincare and makeup, with live YesStyle prices. Find the best pimple patches, sunscreens, sheet masks and more.">
 <meta name="google-site-verification" content="OelPNVXtkoXxN8f8sho1C7HrqtLXh4Zpw4z5itkQIRo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="topbar">
-  <div class="wrap">
-    <a class="logo" href="index.html">Decode<span>K-Beauty</span></a>
+  <div class="container topbar__inner">
+    <a class="logo" href="index.html" aria-label="Decode K-Beauty home">DECODE <span>K-BEAUTY</span></a>
     <nav class="topnav" id="topnav"></nav>
   </div>
 </header>
 
-<main class="wrap home-page">
-  <h1>We test Korean beauty products.<br>Then we rank them.</h1>
-  <p class="updated" style="font-size:14.5px;max-width:620px;margin-top:8px">
-    Every product is bought retail and scored on the same protocol. Rankings update monthly with
-    YesStyle pricing. No sponsored placements.
-  </p>
+<main id="main">
+  <section class="home-hero" aria-labelledby="hero-title">
+    <div class="container home-hero__grid">
+      <div class="home-hero__copy">
+        <h1 id="hero-title">K-beauty,<br>decoded.</h1>
+        <p class="home-hero__lede">Ranked edits and skin-type matches, without the guesswork.</p>
+        <div class="home-hero__actions">
+          <a class="button button--primary" href="#rankings">Explore rankings</a>
+          <a class="text-link" href="quiz.html">Find my skin match</a>
+        </div>
+      </div>
 
-  <div class="hero-tool">
-    <div>
-      <h2>Not sure where to start?</h2>
-      <p>Answer 4 questions — get matched to the right products for your skin, concern and budget.</p>
+      <div class="product-fan" aria-label="Featured product rankings">
+        <a class="product-fan__item product-fan__item--1" href="https://www.yesstyle.com/en/ksecret-seoul-1988-serum-retinal-liposome-2-black-ginseng-30ml/info.html/pid.1126934079" target="_blank" rel="noopener" aria-label="View KSECRET Seoul 1988 Serum on YesStyle, best seller number 19">
+          <img src="images/hero/ksecret-retinal.webp" alt="KSECRET Seoul 1988 Retinal Liposome Serum" width="110" height="280" decoding="async">
+          <span class="product-fan__label" aria-hidden="true">KSECRET<br>Seoul 1988 Serum</span>
+        </a>
+        <a class="product-fan__item product-fan__item--2" href="https://www.yesstyle.com/en/anua-azelaic-acid-10-hyaluron-redness-soothing-serum-2026-version/info.html/pid.1138063294" target="_blank" rel="noopener" aria-label="View Anua Azelaic Acid 10 serum on YesStyle, best seller number 6">
+          <img src="images/hero/anua-azelaic.webp" alt="Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum" width="103" height="226" decoding="async">
+          <span class="product-fan__label" aria-hidden="true">Anua<br>Azelaic Acid 10</span>
+        </a>
+        <a class="product-fan__item product-fan__item--3" href="https://www.yesstyle.com/en/celimax-the-vita-a-retinal-shot-tightening-booster-15ml/info.html/pid.1130946339" target="_blank" rel="noopener" aria-label="View celimax Vita-A Retinal Shot on YesStyle, best seller number 4">
+          <img src="images/hero/celimax-retinal.webp" alt="celimax Vita-A Retinal Shot Tightening Booster" width="114" height="270" decoding="async">
+          <span class="product-fan__label" aria-hidden="true">celimax<br>Vita-A Retinal Shot</span>
+        </a>
+        <a class="product-fan__item product-fan__item--4" href="https://www.yesstyle.com/en/dr-althea-345-relief-cream-renewed-50ml/info.html/pid.1124698946" target="_blank" rel="noopener" aria-label="View Dr. Althea 345 Relief Cream on YesStyle, best seller number 1">
+          <img src="images/hero/dr-althea-cream.webp" alt="Dr. Althea 345 Relief Cream" width="85" height="231" decoding="async">
+          <span class="product-fan__label" aria-hidden="true">Dr. Althea<br>345 Relief Cream</span>
+        </a>
+        <a class="product-fan__item product-fan__item--5" href="https://www.yesstyle.com/en/dr-althea-345-relief-cream-mist-100ml/info.html/pid.1135801052" target="_blank" rel="noopener" aria-label="View Dr. Althea 345 Relief Cream Mist on YesStyle, best seller number 8">
+          <img src="images/hero/dr-althea-mist.webp" alt="Dr. Althea 345 Relief Cream Mist" width="82" height="265" decoding="async">
+          <span class="product-fan__label" aria-hidden="true">Dr. Althea<br>345 Cream Mist</span>
+        </a>
+        <a class="product-fan__item product-fan__item--6" href="https://www.yesstyle.com/en/skin1004-madagascar-centella-asiatica-100-ampoule-100ml/info.html/pid.1067114916" target="_blank" rel="noopener" aria-label="View SKIN1004 Centella Ampoule on YesStyle, best seller number 24">
+          <img src="images/hero/skin1004-ampoule.webp" alt="SKIN1004 Madagascar Centella Asiatica 100 Ampoule" width="84" height="198" decoding="async">
+          <span class="product-fan__label" aria-hidden="true">SKIN1004<br>Centella Ampoule</span>
+        </a>
+        <a class="product-fan__item product-fan__item--7" href="https://www.yesstyle.com/en/cosrx-acne-pimple-master-patch-24-patches/info.html/pid.1052684647" target="_blank" rel="noopener" aria-label="View COSRX Acne Pimple Master Patch on YesStyle, best seller number 17">
+          <img src="images/hero/cosrx-patch.webp" alt="COSRX Acne Pimple Master Patch" width="280" height="249" decoding="async">
+          <span class="product-fan__label" aria-hidden="true">COSRX<br>Acne Pimple Patch</span>
+        </a>
+        <a class="product-fan__item product-fan__item--8" href="https://www.yesstyle.com/en/anua-niacinamide-10-txa-4-serum-2024-version-30ml/info.html/pid.1132942898" target="_blank" rel="noopener" aria-label="View Anua Niacinamide 10 TXA 4 Serum on YesStyle, best seller number 21">
+          <img src="images/hero/anua-niacinamide.webp" alt="Anua Niacinamide 10 TXA 4 Serum" width="113" height="249" fetchpriority="high" decoding="async">
+          <span class="product-fan__label" aria-hidden="true">Anua<br>Niacinamide 10 + TXA 4</span>
+        </a>
+        <a class="product-fan__item product-fan__item--9" href="https://www.yesstyle.com/en/purito-seoul-mighty-bamboo-panthenol-cream-100ml/info.html/pid.1129733663" target="_blank" rel="noopener" aria-label="View Purito Mighty Bamboo Panthenol Cream on YesStyle, best seller number 10">
+          <img src="images/hero/purito-bamboo.webp" alt="Purito SEOUL Mighty Bamboo Panthenol Cream" width="237" height="293" decoding="async">
+          <span class="product-fan__label" aria-hidden="true">Purito<br>Mighty Bamboo Cream</span>
+        </a>
+        <a class="product-fan__item product-fan__item--10" href="https://www.yesstyle.com/en/skin1004-madagascar-centella-hyalu-cica-water-fit-sun-serum-twin-pack/info.html/pid.1121503383" target="_blank" rel="noopener" aria-label="View SKIN1004 Water-Fit Sun Serum Twin Pack on YesStyle, best seller number 3">
+          <img src="images/hero/skin1004-sun-twin.webp" alt="SKIN1004 Hyalu-Cica Water-Fit Sun Serum Twin Pack" width="177" height="208" decoding="async">
+          <span class="product-fan__label" aria-hidden="true">SKIN1004<br>Water-Fit Sun Serum</span>
+        </a>
+      </div>
     </div>
-    <a class="btn" href="quiz.html"><i data-lucide="wand-2" style="width:15px;height:15px"></i> Find my match</a>
-  </div>
+  </section>
 
-  <h2>All rankings</h2>
-  <div class="cat-grid" id="cat-grid"></div>
+  <nav class="quick-nav container" aria-label="Explore Decode K-Beauty">
+    <a class="quick-nav__item" href="#rankings">
+      <i data-lucide="list-ordered" aria-hidden="true"></i>
+      <span class="quick-nav__title">Rankings</span>
+      <span class="quick-nav__description">Six categories, one winner each</span>
+    </a>
+    <a class="quick-nav__item" href="quiz.html">
+      <i data-lucide="scan-face" aria-hidden="true"></i>
+      <span class="quick-nav__title">Skin-type edits</span>
+      <span class="quick-nav__description">A shorter list for your skin</span>
+    </a>
+    <a class="quick-nav__item" href="#comparison">
+      <i data-lucide="columns-2" aria-hidden="true"></i>
+      <span class="quick-nav__title">Product comparison</span>
+      <span class="quick-nav__description">Two formulas, side by side</span>
+    </a>
+    <a class="quick-nav__item" href="blog/">
+      <i data-lucide="book-open" aria-hidden="true"></i>
+      <span class="quick-nav__title">The K-Beauty Edit</span>
+      <span class="quick-nav__description">Routines and ingredient context</span>
+    </a>
+  </nav>
 
-  <div class="answer-block" style="margin-top:34px">
-    <span class="label">What is the best Korean skincare brand for beginners?</span>
-    For a first routine, COSRX and Beauty of Joseon are the two safest starting points: both keep
-    formulas short, fragrance low and prices under $20. Start with a COSRX cleanser, a Beauty of
-    Joseon sunscreen, and add a snail mucin essence only after two weeks of consistency.
-  </div>
+  <section class="editorial-feature container" aria-labelledby="feature-title">
+    <figure class="editorial-feature__media">
+      <img src="images/jennie-kim-2023.jpg" alt="Jennie Kim at a public appearance in November 2023" width="1699" height="2261" loading="lazy" decoding="async">
+    </figure>
+    <article class="editorial-feature__copy">
+      <h2 id="feature-title">Winter skincare for dry, tight skin</h2>
+      <p class="story-meta"><time datetime="2026-11-18">November 18, 2026</time><span>9 min read</span></p>
+      <p class="editorial-feature__summary">A five-step K-Beauty routine for cold weather and central heating, with practical advice on what to change and what to skip.</p>
+      <a class="text-link" href="blog/winter-skincare-routine/">Read the winter guide</a>
+    </article>
+  </section>
+
+  <section class="rankings-section container" id="rankings" aria-labelledby="rankings-title">
+    <div class="rankings-section__header">
+      <h2 id="rankings-title">We test. Then we rank.</h2>
+      <p>Every product is bought retail and scored on the same protocol. Rankings update monthly with YesStyle pricing. No sponsored placements.</p>
+    </div>
+    <div class="cat-grid" id="cat-grid"></div>
+    <details class="beginner-note">
+      <summary>New to Korean skincare?<i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+      <p><strong>What is the best Korean skincare brand for beginners?</strong><br>For a first routine, COSRX and Beauty of Joseon are the two safest starting points: both keep formulas short, fragrance low and prices under $20. Start with a COSRX cleanser, a Beauty of Joseon sunscreen, and add a snail mucin essence only after two weeks of consistency.</p>
+    </details>
+  </section>
+
+  <section class="comparison-section" id="comparison" aria-labelledby="comparison-title">
+    <div class="container comparison__grid">
+      <article class="comparison-product">
+        <figure class="comparison-product__image">
+          <img src="images/cosrx-snail.jpg" alt="COSRX Advanced Snail 96 Mucin Power Essence" width="500" height="500" loading="lazy" decoding="async">
+        </figure>
+        <h3>COSRX</h3>
+        <p>Fragrance-free, 96% snail filtrate, and a lightweight gel texture.</p>
+        <a class="text-link" href="blog/winter-serum-essence-2026/">COSRX review</a>
+      </article>
+
+      <div class="comparison__center">
+        <h2 id="comparison-title">Which snail essence fits?</h2>
+        <p>Two hydrating formulas, two different routines.</p>
+        <a class="text-link" href="snail-serum/">Compare all five</a>
+      </div>
+
+      <article class="comparison-product">
+        <figure class="comparison-product__image">
+          <img src="images/boj-snail.jpg" alt="Beauty of Joseon Revive Serum Ginseng + Snail Mucin" width="500" height="500" loading="lazy" decoding="async">
+        </figure>
+        <h3>Beauty of Joseon</h3>
+        <p>Snail mucin paired with ginseng for a richer, barrier-friendly step.</p>
+        <a class="text-link" href="snail-serum/">Snail serum edit</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="skin-band" aria-labelledby="skin-band-title">
+    <div class="container">
+      <div class="skin-band__header">
+        <div>
+          <h2 id="skin-band-title">Your skin sets the shortlist.</h2>
+          <p>Answer four questions for a match by skin, concern and budget.</p>
+        </div>
+        <a class="text-link skin-band__quiz" href="quiz.html">Find my match</a>
+      </div>
+      <nav class="skin-band__links" aria-label="Recommendations by skin type">
+        <a href="/sensitive-skin/">Sensitive skin</a>
+        <a href="/oily-acne-prone-skin/">Oily &amp; acne-prone</a>
+        <a href="/dry-dehydrated-skin/">Dry &amp; dehydrated</a>
+        <a href="/combination-skin/">Combination skin</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="home-blog container" aria-labelledby="blog-title">
+    <div class="home-blog__header">
+      <h2 id="blog-title">The K-Beauty Edit</h2>
+      <a class="text-link" href="blog/">View all articles</a>
+    </div>
+    <div class="home-blog__grid">
+      <article class="home-story">
+        <a class="home-story__image" href="blog/winter-skincare-routine/" aria-label="Read the winter skincare routine">
+          <img src="images/torriden-mask.jpg" alt="Torriden Dive-In sheet mask" width="500" height="500" loading="lazy" decoding="async">
+        </a>
+        <h3><a href="blog/winter-skincare-routine/">Winter skincare for dry, tight skin</a></h3>
+        <p class="story-meta"><time datetime="2026-11-18">November 18, 2026</time><span>Seasonal routine</span></p>
+        <p class="home-story__summary">What to change when cold air and hot showers make your usual routine feel inadequate.</p>
+        <a class="text-link" href="blog/winter-skincare-routine/">Read the winter guide</a>
+      </article>
+
+      <article class="home-story">
+        <a class="home-story__image home-story__image--warm" href="blog/winter-serum-essence-2026/" aria-label="Read the COSRX Snail 96 review">
+          <img src="images/cosrx-snail.jpg" alt="COSRX Advanced Snail 96 Mucin Power Essence" width="500" height="500" loading="lazy" decoding="async">
+        </a>
+        <h3><a href="blog/winter-serum-essence-2026/">COSRX Snail 96: an honest review</a></h3>
+        <p class="story-meta"><time datetime="2026-11-16">November 16, 2026</time><span>Ingredient deep dive</span></p>
+        <p class="home-story__summary">The formula, the sticky-texture debate, and where this viral essence fits in a routine.</p>
+        <a class="text-link" href="blog/winter-serum-essence-2026/">Read the full review</a>
+      </article>
+    </div>
+  </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <p><b>Affiliate disclosure:</b> Decode K-Beauty participates in the YesStyle affiliate program and earns commissions from qualifying purchases, at no additional cost to you. Rankings are never influenced by commission rates.</p>
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <a class="logo" href="index.html" aria-label="Decode K-Beauty home">DECODE K-BEAUTY</a>
+      <p>Beauty in context.<br>Choices with evidence.</p>
+    </div>
+    <nav aria-label="Footer navigation">
+      <p class="footer-heading">Explore</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="#rankings">Rankings</a>
+        <a href="pimple-patches/">Pimple patches</a>
+        <a href="sheet-masks/">Sheet masks</a>
+        <a href="quiz.html">Skin match</a>
+        <a href="blog/">Blog</a>
+      </div>
+    </nav>
+    <div>
+      <p class="footer-heading">Editorial transparency</p>
+      <p class="footer-disclosure">Decode K-Beauty participates in the YesStyle affiliate program and earns commissions from qualifying purchases, at no additional cost to you. Rankings are never influenced by commission rates.</p>
+    </div>
+  </div>
+  <div class="container site-footer__bottom">
+    <p>&copy; 2026 Decode K-Beauty</p>
+    <p class="photo-credit" data-credits>Photograph: <a href="https://commons.wikimedia.org/wiki/File:Kim_Jennie_%28%EA%B9%80%EC%A0%9C%EB%8B%88%29_05.jpg" target="_blank" rel="noopener">Jennie Kim, K-POPIT / TV10</a>, <a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a>. Cropped for layout.</p>
   </div>
 </footer>
 
@@ -53,20 +232,27 @@
 <script src="data.js"></script>
 <script src="nav.js"></script>
 <script>
+const CAT_ICONS = {
+  "pimple-patches": "shield",
+  "korean-sunscreen": "sun",
+  "sheet-masks": "layers",
+  "snail-serum": "droplets",
+  "lip-tint": "smile",
+  "cushion-foundation": "circle-dot",
+};
+
 renderNavigation();
 
-const CAT_ICONS = {
-  "pimple-patches": "shield", "korean-sunscreen": "sun", "sheet-masks": "layers",
-  "snail-serum": "droplets", "lip-tint": "smile", "cushion-foundation": "circle-dot",
-};
-document.getElementById("cat-grid").innerHTML = Object.entries(CATEGORIES).map(([k, c]) => {
-  const top = PRODUCTS.find(p => p.cat === k && p.rankNote === "Best overall");
-  return `<a class="cat-card" href="${k}/">
-    <div class="ic"><i data-lucide="${CAT_ICONS[k] || "sparkles"}" style="width:18px;height:18px"></i></div>
-    <h3>${c.h1.replace(" in 2026", "")}</h3>
-    <p>#1: ${top ? top.brand + " " + top.name : ""}</p>
+document.getElementById("cat-grid").innerHTML = Object.entries(CATEGORIES).map(([k, category]) => {
+  const top = PRODUCTS.find(product => product.cat === k && product.rankNote === "Best overall");
+  const winner = top ? `${top.brand} ${top.name}` : "View the current winner";
+  return `<a class="cat-card" href="/${k}/" aria-label="View ${category.name} rankings. Number one: ${winner}">
+    <i data-lucide="${CAT_ICONS[k] || "sparkles"}" aria-hidden="true"></i>
+    <h3>${category.name}</h3>
+    <p>#1: ${top ? winner : "Current edit"}</p>
   </a>`;
 }).join("");
+
 lucide.createIcons();
 </script>
 </body>

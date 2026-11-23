@@ -26,7 +26,7 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 
 // --- shared files, copied to dist root ---
-for (const f of ["affiliate.js", "data.js", "nav.js", "styles.css"]) {
+for (const f of ["affiliate.js", "data.js", "nav.js", "styles.css", "home.css", "tokens.css", "base.css"]) {
   fs.copyFileSync(path.join(SRC, f), path.join(OUT, f));
 }
 // product images
@@ -101,7 +101,8 @@ for (const f of ["index.html", "quiz.html"]) {
     html = html.replaceAll(`category.html?cat=${k}`, `${k}/`);
   }
   html = html
-    .replaceAll('category.html?cat=${k}', '${k}/')
+    .replaceAll('category.html?cat=${key}', '/${key}/')
+    .replaceAll('category.html?cat=${k}', '/${k}/')
     .replaceAll('category.html?cat=${answers.cat}', '${answers.cat}/');
   fs.writeFileSync(path.join(OUT, f), html);
 }
