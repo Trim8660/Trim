@@ -1,0 +1,110 @@
+/* Winter moisturizer guide — editorial magazine preview, scoped to this article. */
+body.blog-page { background:#faf8f4; }
+.topbar { background:#fff; }
+.winter-edit { max-width:1120px; padding-bottom:80px; color:#292d28; }
+.winter-edit .draft-note { margin:18px 0 0; color:#778078; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.winter-edit .crumbs { margin:12px 0 26px; font-size:12px; }
+.winter-masthead { display:flex; align-items:center; justify-content:space-between; gap:15px; padding:15px 0; border-top:1px solid #a8b3a5; border-bottom:1px solid #d8ddd4; color:#52695b; font-size:10px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; }
+.winter-edit .winter-head { display:grid; grid-template-columns:minmax(0,1fr) 220px; align-items:end; gap:40px; margin:0; padding:40px 0 36px; }
+.winter-edit .article-kicker { margin:0 0 16px; color:#7a8d7c; font-size:11px; letter-spacing:.12em; }
+.winter-edit h1 { max-width:790px; margin:0 0 20px; color:#24382e; font:400 clamp(40px,5.3vw,65px)/1.03 Georgia,'Times New Roman',serif; letter-spacing:-.045em; }
+.winter-edit .article-dek { max-width:680px; margin:0; color:#556058; font-size:17px; line-height:1.65; }
+.winter-edit .header-side { padding:3px 0 3px 22px; border-left:1px solid #d3dad2; }
+.winter-edit .header-side .header-num { color:#a1b0a2; font:italic 38px/1 Georgia,serif; }
+.winter-edit .header-side .header-note { margin:9px 0 0; color:#5c7061; font:400 19px/1.3 Georgia,serif; }
+.winter-edit .article-byline { display:block; margin:17px 0 0; color:#7d857c; font-size:11px; line-height:1.6; }
+.winter-showcase { background:#e8ede5; padding:22px 26px 24px; }
+.winter-showcase-top { display:flex; justify-content:space-between; gap:10px; padding:0 0 16px; color:#596e5f; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.winter-showcase-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.winter-edit .showcase-card { display:block; min-width:0; background:#fff; color:#263a2f; text-decoration:none; }
+.showcase-card .showcase-img { display:flex; align-items:center; justify-content:center; padding:12px; background:#fdfdfb; }
+.showcase-card img { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; }
+.showcase-caption { display:flex; justify-content:space-between; align-items:center; gap:8px; padding:12px 13px; border-top:1px solid #edf0eb; font-size:11px; font-weight:700; letter-spacing:.05em; }
+.showcase-caption span { color:#99a79c; font-family:Georgia,serif; font-size:13px; font-weight:400; }
+.winter-edit .hero-caption { margin:10px 0 0; color:#818b81; font-size:11px; line-height:1.5; }
+.winter-reading-layout { display:grid; grid-template-columns:170px minmax(0,1fr); gap:60px; align-items:start; padding:50px 0 0; }
+.winter-rail { position:sticky; top:90px; min-width:0; }
+.winter-edit .article-toc { display:flex; flex-direction:column; align-items:flex-start; gap:11px; margin:0; padding:0 0 22px; border:0; border-bottom:1px solid #d8ddd4; }
+.winter-edit .article-toc .toc-label { margin:0 0 6px; color:#879588; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.winter-edit .article-toc a { color:#5e6a60; font-size:13px; line-height:1.35; text-decoration:none; }
+.winter-edit .article-toc a:hover { color:#1e5940; }
+.winter-rail-note { margin-top:20px; color:#96a398; font-size:10px; line-height:1.6; letter-spacing:.1em; text-transform:uppercase; }
+.winter-reading { min-width:0; max-width:780px; }
+.winter-edit .answer-block { margin:0 0 22px; padding:24px 26px; border:0; border-left:3px solid #718c76; background:#eef2eb; color:#304536; font:400 17px/1.7 Georgia,serif; }
+.winter-edit .answer-block .label { display:block; margin:0 0 9px; color:#718c76; font:700 10px/1.5 -apple-system,'Helvetica Neue',Arial,sans-serif; letter-spacing:.11em; text-transform:uppercase; }
+.winter-edit .answer-block a { color:#365d48; }
+.winter-edit .editor-note { margin:0 0 8px; color:#778077; font-size:12px; line-height:1.65; }
+.winter-reading > p:not(.editor-note) { color:#353a35; font-size:16px; line-height:1.9; margin:24px 0 0; }
+.winter-edit .section-overline { margin:56px 0 11px; color:#879787; font-size:10px; font-weight:700; letter-spacing:.13em; line-height:1.4; text-transform:uppercase; }
+.winter-edit section > .section-overline + h2 { margin-top:0; }
+.winter-edit h2 { margin:0 0 16px; color:#253a2d; font:400 35px/1.15 Georgia,serif; letter-spacing:-.025em; }
+.winter-edit h3 { margin:29px 0 9px; color:#293b2e; font-size:17px; line-height:1.4; }
+.winter-edit p { line-height:1.8; }
+.winter-compare-scroll { width:100%; overflow-x:auto; margin:26px 0 10px; border-top:1px solid #ced7ce; border-bottom:1px solid #ced7ce; }
+.winter-table { width:100%; min-width:620px; border-collapse:collapse; text-align:left; }
+.winter-table th,.winter-table td { padding:16px 16px 16px 0; border-bottom:1px solid #e5e9e2; vertical-align:top; font-size:13px; line-height:1.55; }
+.winter-table thead th { color:#879789; font-size:10px; letter-spacing:.08em; text-transform:uppercase; }
+.winter-table tbody tr:last-child th,.winter-table tbody tr:last-child td { border-bottom:0; }
+.winter-table tbody th { width:28%; }
+.winter-table small { display:block; margin-top:4px; color:#828a82; font-size:11px; font-weight:400; }
+.winter-edit .source-note { margin:11px 0 0; color:#7a837a; font-size:12px; line-height:1.6; }
+.winter-edit .winter-product { display:block; margin:62px 0 0; padding:0 0 42px; border:0; border-bottom:1px solid #cfd8cf; }
+.product-heading { display:flex; justify-content:space-between; align-items:end; gap:20px; padding:0 0 17px; border-top:1px solid #809584; }
+.product-heading .product-number { display:block; margin:16px 0 12px; color:#879b8b; font-size:10px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
+.winter-edit .product-heading h2 { margin:0; font-size:31px; }
+.winter-edit .product-heading .product-role { flex:0 0 auto; margin:0 0 4px; color:#7e8f80; font-size:10px; font-weight:700; letter-spacing:.08em; text-align:right; text-transform:uppercase; }
+.product-spread { display:grid; grid-template-columns:minmax(0, 235px) minmax(0, 1fr); gap:30px; align-items:start; }
+.winter-product figure { min-width:0; margin:0; padding:13px; background:#e9eee7; }
+.winter-product:nth-of-type(even) figure { background:#ebefed; }
+.winter-product figure img { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; background:white; }
+.winter-product figcaption { padding-top:10px; color:#7d8b7f; font-size:10px; line-height:1.5; }
+.winter-product-copy { min-width:0; }
+.winter-edit .winter-product-copy p { margin:0 0 14px; color:#383f39; font-size:14.5px; line-height:1.78; }
+.winter-edit .winter-product-copy .product-detail { color:#6d796f; font-size:13px; }
+.winter-edit a.winter-shop { display:inline-flex; align-items:center; gap:20px; padding:11px 15px; background:#304f3d; color:white; font-size:12px; font-weight:700; line-height:1.4; text-decoration:none; }
+.winter-edit a.winter-shop:hover { background:#203b2c; }
+.winter-edit .source-ref { margin-left:3px; font-size:11px; vertical-align:super; }
+.winter-edit .winter-ending { margin:54px 0 0; padding:22px 28px 24px; background:#e9eee5; }
+.winter-edit .winter-ending .section-overline { margin:0 0 10px; }
+.winter-edit .winter-ending h2 { margin-bottom:12px; }
+.winter-edit .winter-ending a { display:inline-block; margin:3px 0; color:#315d44; font-size:13px; font-weight:700; }
+.winter-edit .article-sources { margin-top:55px; padding-top:20px; border-top:1px solid #d8ddd4; overflow-wrap:anywhere; }
+.winter-edit .article-sources h2 { font-size:24px; }
+.winter-edit .article-sources li { font-size:12px; line-height:1.7; }
+@media (max-width:850px) {
+ .winter-reading-layout { grid-template-columns:145px minmax(0,1fr); gap:32px; }
+ .product-spread { grid-template-columns:minmax(0,180px) minmax(0,1fr); gap:22px; }
+ .winter-edit .product-heading .product-role { max-width:145px; }
+}
+@media (max-width:720px) {
+ .winter-edit { padding-bottom:60px; }
+ .winter-masthead { font-size:9px; letter-spacing:.1em; }
+ .winter-edit .winter-head { grid-template-columns:1fr; gap:18px; padding:30px 0 26px; }
+ .winter-edit h1 { font-size:clamp(37px,8.8vw,52px); }
+ .winter-edit .header-side { display:flex; align-items:center; gap:12px; padding:0; border:0; }
+ .winter-edit .header-side .header-num { font-size:26px; }
+ .winter-edit .header-side .header-note { margin:0; font-size:15px; }
+ .winter-showcase { padding:16px; }
+ .winter-showcase-grid { gap:7px; }
+ .showcase-card .showcase-img { padding:5px; }
+ .showcase-caption { padding:9px 7px; font-size:9px; }
+ .showcase-caption span { font-size:11px; }
+ .winter-reading-layout { grid-template-columns:1fr; gap:25px; padding-top:32px; }
+ .winter-rail { position:static; }
+ .winter-edit .article-toc { flex-direction:row; align-items:center; gap:9px 15px; padding:0 0 18px; }
+ .winter-edit .article-toc .toc-label { width:100%; margin:0 0 2px; }
+ .winter-rail-note { display:none; }
+ .winter-edit h2 { font-size:29px; }
+ .winter-edit .winter-product { margin-top:48px; }
+ .winter-edit .product-heading h2 { font-size:27px; }
+}
+@media (max-width:480px) {
+ .winter-masthead span:last-child { text-align:right; }
+ .winter-showcase { padding:12px; }
+ .winter-showcase-top { font-size:9px; letter-spacing:.07em; }
+ .product-heading { display:block; }
+ .winter-edit .product-heading .product-role { margin:9px 0 0; max-width:none; text-align:left; }
+ .product-spread { grid-template-columns:1fr; gap:18px; }
+ .winter-product figure { max-width:340px; }
+ .winter-edit .answer-block { padding:20px; font-size:16px; }
+}
