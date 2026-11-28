@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://decodekbeauty.com/sitemap.xml
+Sitemap: https://www.decodekbeauty.com/sitemap.xml

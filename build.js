@@ -119,7 +119,7 @@ const previewRoutes = [
 fs.writeFileSync(path.join(OUT, "manus-routes.json"), JSON.stringify({ routes: previewRoutes }, null, 2) + "\n");
 
 // --- sitemap + robots ---
-const BASE = "https://decodekbeauty.com"; // production domain
+const BASE = "https://www.decodekbeauty.com"; // canonical production host; apex redirects here
 const urls = ["", "quiz.html", ...CATS.map(c => `${c}/`), ...SKINS.map(s => `${s.path}/`), ...blogUrls];
 fs.writeFileSync(path.join(OUT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
